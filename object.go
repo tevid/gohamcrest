@@ -1,68 +1,64 @@
 package test
 
 import (
-	"testing"
 	"reflect"
-	"path/filepath"
-	"runtime"
 	"fmt"
 )
 
 type isEqual struct {
-	actual interface{}
+	expected interface{}
 }
 
-func (this *isEqual)Match(expected interface{}) bool {
-	return reflect.DeepEqual(expected, this.actual)
+func (this *isEqual)Match(actual interface{}) bool {
+	return reflect.DeepEqual(this.expected, actual)
 }
 
-func (this *isEqual)FailReason(expected interface{})string {
-	return fmt.Sprintf("%v(expected)!=%v(actual)",expected,this.actual)
+func (this *isEqual)FailReason(actual interface{})string {
+	return fmt.Sprintf("%v(expected)!=%v(actual)",this.expected,actual)
+}
+
+//Create a Matcher for match the actual object is equal excepted object
+//example:
+//int:tug.Assert(t,2,Equal(2))
+//string:tug.Assert(t,"joe",Equal("joe"))
+func Equal(expected interface{}) Matcher {
+	return &isEqual{expected:expected}
 }
 
 
-func Equal(actual interface{}) Matcher {
-	return &isEqual{actual:actual}
+func NotEqual(actual interface{}) Matcher{
+	return Not(Equal(actual))
 }
 
 
-func NotEqual(t *testing.T, expected, actual interface{}) {
-	if reflect.DeepEqual(expected, actual) {
-		_, file, line, _ := runtime.Caller(1)
-		t.Logf("\033[31m%s:%d:\n\n\tvalue should not equal %#v\033[39m\n\n",
-			filepath.Base(file), line, actual)
-		t.FailNow()
-	}
+func NotNilVal() Matcher{
+	return Not(NilVal())
 }
 
-func Nil(t *testing.T, object interface{}) {
-	if !isNil(object) {
-		_, file, line, _ := runtime.Caller(1)
-		t.Logf("\033[31m%s:%d:\n\n\t   <nil> (expected)\n\n\t!= %#v (actual)\033[39m\n\n",
-			filepath.Base(file), line, object)
-		t.FailNow()
-	}
+type isNil struct {
+	expected interface{}
 }
 
-func NotNil(t *testing.T, object interface{}) {
-	if isNil(object) {
-		_, file, line, _ := runtime.Caller(1)
-		t.Logf("\033[31m%s:%d:\n\n\tExpected value not to be <nil>\033[39m\n\n",
-			filepath.Base(file), line, object)
-		t.FailNow()
-	}
-}
-
-func isNil(object interface{}) bool {
-	if object == nil {
+func (this *isNil)Match(actual interface{}) bool {
+	if actual == nil {
 		return true
 	}
 
-	value := reflect.ValueOf(object)
+	value := reflect.ValueOf(actual)
 	kind := value.Kind()
 	if kind >= reflect.Chan && kind <= reflect.Slice && value.IsNil() {
 		return true
 	}
 
 	return false
+}
+
+func (this *isNil)FailReason(actual interface{})string {
+	return fmt.Sprintf("%v(expected)!=%v(actual)",this.expected,actual)
+}
+
+//Create a Matcher for match the object is nil or not.
+//example
+func NilVal() Matcher {
+	return &isNil{}
 }

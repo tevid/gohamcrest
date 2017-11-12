@@ -1,10 +1,9 @@
 package test
 
 type Matcher interface {
-
 	//run match
-	Match(expected interface{}) bool
+	Match(actual interface{}) bool
 
 	//get fail reason
-	FailReason(expected interface{})string
+	FailReason(actual interface{}) string
 }

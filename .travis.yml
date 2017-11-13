@@ -1,0 +1,22 @@
+language: go
+sudo: required
+
+go:
+  - 1.7
+  - 1.8
+  - 1.9
+
+env:
+    - GO15VENDOREXPERIMENT="1"
+
+before_install:
+    - go get github.com/mattn/goveralls
+    - Project=tug
+
+install:
+    - go get github.com/cihub/seelog
+
+script:
+    - chmod u+x coverage.sh
+    - ./coverage.sh --coveralls
+    - go build -o "$Project"

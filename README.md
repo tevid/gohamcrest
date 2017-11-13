@@ -1,4 +1,4 @@
-# tug - Test utils for Golang
+tug - Test utils for Golang
 ================
 
 [![Build Status](https://travis-ci.org/zouyx/tug.svg?branch=master)](https://travis-ci.org/zouyx/tug)

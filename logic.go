@@ -1,19 +1,18 @@
 package test
 
-import (
-	"fmt"
-)
-
 type not struct {
 	trueMatcher Matcher
 }
 
-func (this *not)Match(expected interface{}) bool {
-	return !this.trueMatcher.Match(expected)
+func (this *not)Match(actual interface{}) bool {
+	return !this.trueMatcher.Match(actual)
 }
 
-func (this *not)FailReason(expected interface{})string {
-	return fmt.Sprintf("not %s ",this.trueMatcher.FailReason(expected))
+func (this *not)FailReason(actual interface{})string {
+	return this.trueMatcher.NegationFailReason(actual)
+}
+func (this *not)NegationFailReason(actual interface{})string {
+	return ""
 }
 
 func Not(matcher Matcher) Matcher {

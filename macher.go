@@ -6,4 +6,7 @@ type Matcher interface {
 
 	//get fail reason
 	FailReason(actual interface{}) string
+
+	//get negation fail reason
+	NegationFailReason(actual interface{}) string
 }

@@ -17,6 +17,10 @@ func (this *isEqual)FailReason(actual interface{})string {
 	return fmt.Sprintf("%v(expected)!=%v(actual)",this.expected,actual)
 }
 
+func (this *isEqual)NegationFailReason(actual interface{})string {
+	return fmt.Sprintf("%v(expected)=%v(actual)",this.expected,actual)
+}
+
 //Create a Matcher for match the actual object is equal excepted object
 //example:
 //int:tug.Assert(t,2,Equal(2))
@@ -26,8 +30,8 @@ func Equal(expected interface{}) Matcher {
 }
 
 
-func NotEqual(actual interface{}) Matcher{
-	return Not(Equal(actual))
+func NotEqual(expected interface{}) Matcher{
+	return Not(Equal(expected))
 }
 
 
@@ -55,6 +59,10 @@ func (this *isNil)Match(actual interface{}) bool {
 
 func (this *isNil)FailReason(actual interface{})string {
 	return fmt.Sprintf("%v(expected)!=%v(actual)",this.expected,actual)
+}
+
+func (this *isNil)NegationFailReason(actual interface{})string {
+	return fmt.Sprintf("%v(expected)=%v(actual)",this.expected,actual)
 }
 
 //Create a Matcher for match the object is nil or not.

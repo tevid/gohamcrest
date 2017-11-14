@@ -1,9 +1,6 @@
 package test
 
 import (
-	"testing"
-	"path/filepath"
-	"runtime"
 	"container/list"
 	"fmt"
 )
@@ -13,8 +10,11 @@ type emptyList struct {
 }
 
 func (this *emptyList) Match(actual interface{}) bool {
-	if list, ok := actual.(*list.List); ok {
+	list, ok := actual.(*list.List)
+	if ok {
 		return list==nil||list.Len()== 0
+	}else{
+		panic(fmt.Sprintf("type not match List.list,%T(actual)",list))
 	}
 	return false
 }
@@ -33,24 +33,40 @@ func EmptyList() Matcher {
 	}
 }
 
-func HasStringItems(t *testing.T,list *list.List, obj interface{}) {
-	//NotEmptyList(t,list)
+type hasItems struct {
+	reason string
+	expected interface{}
+}
+
+func (this *hasItems) Match(actual interface{}) bool {
+	list, ok := actual.(*list.List)
+	if !ok {
+		panic(fmt.Sprintf("type not match List.list,%T(actual)",list))
+	}
 
 	flag := false
 
 	for e := list.Front(); e != nil; e = e.Next() {
-		if e.Value == obj {
+		if e.Value == this.expected {
 			flag = true
 			break
 		}
 	}
 
-	if !flag {
-		_, file, line, _ := runtime.Caller(1)
-		t.Logf("\033[31m%s:%d:\n\n\t   contain %#v (expected)\n\n\t not contain %#v (actual)\033[39m\n\n",
-			filepath.Base(file), line, obj, obj)
-		t.FailNow()
-	}
+	return flag
 }
 
+func (this *hasItems)FailReason(actual interface{})string {
+	return fmt.Sprintf(this.reason,EMPTY,this.expected)
+}
 
+func (this *hasItems)NegationFailReason(actual interface{})string {
+	return fmt.Sprintf(this.reason,LOGIC_NOT,this.expected)
+}
+
+func HasItems(expected interface{}) Matcher {
+	return &hasItems{
+		expected:expected,
+		reason:"list is %s contain %v(excepted)",
+	}
+}

@@ -16,10 +16,15 @@ func TestNotEmptyList(t *testing.T) {
 	Assert(t,l,Not(EmptyList()))
 }
 
+//func TestNotEmptyListError(t *testing.T) {
+//	Assert(t,"",Not(EmptyList()))
+//}
+
 func TestHasStringItems(t *testing.T) {
 	l := list.New()
 	l.PushBack("joe")
-	HasStringItems(t,l,"joe")
+	Assert(t,l,HasItems("joe"))
+	//Assert(t,l,HasItems("joe1"))
 }
 
 

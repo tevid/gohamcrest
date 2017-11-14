@@ -5,20 +5,36 @@ import (
 	"path/filepath"
 	"runtime"
 	"container/list"
+	"fmt"
 )
 
+type emptyList struct {
+	reason string
+}
 
-func NotEmptyList(t *testing.T,list *list.List ) {
-	if list==nil||list.Len() == 0 {
-		_, file, line, _ := runtime.Caller(1)
-		t.Logf("\033[31m%s:%d:\n\n\t   not empty (expected)\n\n",
-			filepath.Base(file), line)
-		t.FailNow()
+func (this *emptyList) Match(actual interface{}) bool {
+	if list, ok := actual.(*list.List); ok {
+		return list==nil||list.Len()== 0
+	}
+	return false
+}
+
+func (this *emptyList)FailReason(actual interface{})string {
+	return fmt.Sprintf(this.reason,actual,LOGIC_NOT)
+}
+
+func (this *emptyList)NegationFailReason(actual interface{})string {
+	return fmt.Sprintf(this.reason,actual)
+}
+
+func EmptyList() Matcher {
+	return &emptyList{
+		reason:"list is %s nil, %v(actual)",
 	}
 }
 
 func HasStringItems(t *testing.T,list *list.List, obj interface{}) {
-	NotEmptyList(t,list)
+	//NotEmptyList(t,list)
 
 	flag := false
 

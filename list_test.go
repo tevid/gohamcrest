@@ -8,7 +8,7 @@ import (
 func TestNotEmptyList(t *testing.T) {
 	l := list.New()
 	l.PushBack("joe")
-	NotEmptyList(t,l)
+	Assert(t,l,Not(EmptyList()))
 }
 
 func TestHasStringItems(t *testing.T) {

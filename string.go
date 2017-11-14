@@ -18,15 +18,18 @@ func (this *startWith) Match(actual interface{}) bool {
 }
 
 func (this *startWith)FailReason(actual interface{})string {
-	return fmt.Sprintf("%v not start with %v",actual,this.expected)
+	return fmt.Sprintf(this.reason,actual,LOGIC_NOT,this.expected)
 }
 
 func (this *startWith)NegationFailReason(actual interface{})string {
-	return fmt.Sprintf("%v start with %v",actual,this.expected)
+	return fmt.Sprintf(this.reason,actual,this.expected)
 }
 
 func StartWith(expected string) Matcher {
-	return &startWith{expected:expected}
+	return &startWith{
+		expected:expected,
+		reason:"%v %s start with %v",
+		}
 }
 
 

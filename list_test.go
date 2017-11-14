@@ -5,6 +5,11 @@ import (
 	"container/list"
 )
 
+func TestEmptyList(t *testing.T) {
+	l := list.New()
+	Assert(t,l,EmptyList())
+}
+
 func TestNotEmptyList(t *testing.T) {
 	l := list.New()
 	l.PushBack("joe")

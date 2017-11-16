@@ -64,7 +64,7 @@ func TestNotEqual(t *testing.T) {
 }
 ```
 
-More usage , check test case please.
+More usage,check test case please.More info check [Wiki](https://github.com/zouyx/tug/wiki) .
 
 # Contribution
   * Source Code: https://github.com/zouyx/tug/

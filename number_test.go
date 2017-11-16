@@ -6,5 +6,5 @@ import (
 
 
 func TestGreaterThan(t *testing.T) {
-	Assert(t,3.2,GreaterThan(2))
+	Assert(t,3,GreaterThan(2))
 }

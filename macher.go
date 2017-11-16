@@ -1,4 +1,4 @@
-package test
+package tug
 
 type Matcher interface {
 	//run match

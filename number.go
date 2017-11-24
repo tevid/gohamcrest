@@ -2,7 +2,6 @@ package tug
 
 import (
 	"fmt"
-	"reflect"
 )
 
 type greaterThanMatcher struct {
@@ -11,11 +10,7 @@ type greaterThanMatcher struct {
 }
 
 func (this *greaterThanMatcher) Match(actual interface{}) bool {
-	actualType:=reflect.TypeOf(actual)
-	expectedType:=reflect.TypeOf(this.expected)
-	if actualType.Name()!=expectedType.Name(){
-		panic(fmt.Sprintf("type not match actual type:%T,expected type:%T",actual,this.expected))
-	}
+	validateParamType(actual,this.expected)
 
 	switch actual.(type) { //多选语句switch
 	case float64:
@@ -42,4 +37,47 @@ func GreaterThan(expected interface{}) Matcher {
 		expected:expected,
 		reason:"%v is %s greater than %v(excepted)",
 	}
+}
+
+func LessThanOrEquals(expected interface{}) Matcher {
+	return Not(GreaterThan(expected))
+}
+
+type lessThanMatcher struct {
+	reason string
+	expected interface{}
+}
+
+func (this *lessThanMatcher) Match(actual interface{}) bool {
+	validateParamType(actual,this.expected)
+
+	switch actual.(type) { //多选语句switch
+	case float64:
+		return actual.(float64)<this.expected.(float64)
+	case float32:
+		return actual.(float32)<this.expected.(float32)
+	case int:
+		return actual.(int)<this.expected.(int)
+	}
+
+	return false
+}
+
+func (this *lessThanMatcher)FailReason(actual interface{})string {
+	return fmt.Sprintf(this.reason,actual,LOGIC_NOT,this.expected)
+}
+
+func (this *lessThanMatcher)NegationFailReason(actual interface{})string {
+	return fmt.Sprintf(this.reason,actual,EMPTY,this.expected)
+}
+
+func LessThan(expected interface{}) Matcher {
+	return &lessThanMatcher{
+		expected:expected,
+		reason:"%v is %s less than %v(excepted)",
+	}
+}
+
+func GreaterThanOrEquals(expected interface{}) Matcher {
+	return Not(LessThan(expected))
 }

@@ -17,7 +17,7 @@ type Matcher interface {
 
 
 type BaseMatcher struct {
-	Expected string
+	Expected interface{}
 	Reason string
 }
 func (this *BaseMatcher) Match(actual interface{}) bool {

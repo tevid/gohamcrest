@@ -25,4 +25,3 @@ func TestContainString(t *testing.T) {
 	//Assert(t,"joe",Not(EndWith("e")))
 	Assert(t,"joe",Not(ContainString("o0")))
 }
-

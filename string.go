@@ -4,13 +4,18 @@ import (
 	"strings"
 )
 
+func toString(o interface{}) string  {
+	return o.(string)
+}
+
 type startWith struct {
 	BaseMatcher
 }
 
 func (this *startWith) Match(actual interface{}) bool {
+	excepted := toString(this.Expected)
 	if str, ok := actual.(string); ok {
-		return strings.HasPrefix(str, this.Expected)
+		return strings.HasPrefix(str, excepted)
 	}
 	return false
 }
@@ -27,8 +32,9 @@ type endWith struct {
 }
 
 func (this *endWith) Match(actual interface{}) bool {
+	excepted := toString(this.Expected)
 	if str, ok := actual.(string); ok {
-		return strings.HasSuffix(str, this.Expected)
+		return strings.HasSuffix(str, excepted)
 	}
 	return false
 }
@@ -45,8 +51,9 @@ type containString struct {
 }
 
 func (this *containString) Match(actual interface{}) bool {
+	excepted := toString(this.Expected)
 	if str, ok := actual.(string); ok {
-		return strings.Contains(str, this.Expected)
+		return strings.Contains(str, excepted)
 	}
 	return false
 }

@@ -59,4 +59,31 @@ func EndWith(expected string) Matcher {
 	}
 }
 
+type containString struct {
+	expected string
+	reason string
+}
+
+func (this *containString) Match(actual interface{}) bool {
+	if str, ok := actual.(string); ok {
+		return strings.Contains(str, this.expected)
+	}
+	return false
+}
+
+func (this *containString)FailReason(actual interface{})string {
+	return fmt.Sprintf(this.reason,actual,LOGIC_NOT,this.expected)
+}
+
+func (this *containString)NegationFailReason(actual interface{})string {
+	return fmt.Sprintf(this.reason,actual,this.expected)
+}
+
+func ContainString(expected string) Matcher {
+	return &endWith{
+		expected:expected,
+		reason:"%v %s contain %v",
+	}
+}
+
 

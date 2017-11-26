@@ -19,3 +19,10 @@ func TestEndWith(t *testing.T) {
 }
 
 
+func TestContainString(t *testing.T) {
+	Assert(t,"joe",ContainString("oe"))
+	//Assert(t,"joe",EndWith("0"))
+	//Assert(t,"joe",Not(EndWith("e")))
+	Assert(t,"joe",Not(ContainString("o0")))
+}
+

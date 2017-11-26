@@ -33,57 +33,39 @@ func StartWith(expected string) Matcher {
 }
 
 type endWith struct {
-	expected string
-	reason string
+	BaseMatcher
 }
 
 func (this *endWith) Match(actual interface{}) bool {
 	if str, ok := actual.(string); ok {
-		return strings.HasSuffix(str, this.expected)
+		return strings.HasSuffix(str, this.Expected)
 	}
 	return false
 }
 
-func (this *endWith)FailReason(actual interface{})string {
-	return fmt.Sprintf(this.reason,actual,LOGIC_NOT,this.expected)
-}
-
-func (this *endWith)NegationFailReason(actual interface{})string {
-	return fmt.Sprintf(this.reason,actual,this.expected)
-}
-
 func EndWith(expected string) Matcher {
-	return &endWith{
-		expected:expected,
-		reason:"%v %s end with %v",
-	}
+	matcher := &endWith{}
+	matcher.Expected=expected
+	matcher.Reason="%v %s end with %v"
+	return matcher
 }
 
 type containString struct {
-	expected string
-	reason string
+	BaseMatcher
 }
 
 func (this *containString) Match(actual interface{}) bool {
 	if str, ok := actual.(string); ok {
-		return strings.Contains(str, this.expected)
+		return strings.Contains(str, this.Expected)
 	}
 	return false
 }
 
-func (this *containString)FailReason(actual interface{})string {
-	return fmt.Sprintf(this.reason,actual,LOGIC_NOT,this.expected)
-}
-
-func (this *containString)NegationFailReason(actual interface{})string {
-	return fmt.Sprintf(this.reason,actual,this.expected)
-}
-
 func ContainString(expected string) Matcher {
-	return &endWith{
-		expected:expected,
-		reason:"%v %s contain %v",
-	}
+	matcher := &containString{}
+	matcher.Expected=expected
+	matcher.Reason="%v %s contain %v"
+	return matcher
 }
 
 

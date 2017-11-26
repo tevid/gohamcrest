@@ -32,4 +32,31 @@ func StartWith(expected string) Matcher {
 		}
 }
 
+type endWith struct {
+	expected string
+	reason string
+}
+
+func (this *endWith) Match(actual interface{}) bool {
+	if str, ok := actual.(string); ok {
+		return strings.HasSuffix(str, this.expected)
+	}
+	return false
+}
+
+func (this *endWith)FailReason(actual interface{})string {
+	return fmt.Sprintf(this.reason,actual,LOGIC_NOT,this.expected)
+}
+
+func (this *endWith)NegationFailReason(actual interface{})string {
+	return fmt.Sprintf(this.reason,actual,this.expected)
+}
+
+func EndWith(expected string) Matcher {
+	return &endWith{
+		expected:expected,
+		reason:"%v %s end with %v",
+	}
+}
+
 

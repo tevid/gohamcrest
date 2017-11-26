@@ -1,35 +1,68 @@
 package tug
 
 import (
-	"fmt"
 	"strings"
 )
 
+func toString(o interface{}) string  {
+	return o.(string)
+}
+
 type startWith struct {
-	expected string
-	reason string
+	BaseMatcher
 }
 
 func (this *startWith) Match(actual interface{}) bool {
+	excepted := toString(this.Expected)
 	if str, ok := actual.(string); ok {
-		return strings.HasPrefix(str, this.expected)
+		return strings.HasPrefix(str, excepted)
 	}
 	return false
 }
 
-func (this *startWith)FailReason(actual interface{})string {
-	return fmt.Sprintf(this.reason,actual,LOGIC_NOT,this.expected)
-}
-
-func (this *startWith)NegationFailReason(actual interface{})string {
-	return fmt.Sprintf(this.reason,actual,this.expected)
-}
-
 func StartWith(expected string) Matcher {
-	return &startWith{
-		expected:expected,
-		reason:"%v %s start with %v",
-		}
+	matcher := &startWith{}
+	matcher.Expected=expected
+	matcher.Reason="%v %s start with %v"
+	return matcher
+}
+
+type endWith struct {
+	BaseMatcher
+}
+
+func (this *endWith) Match(actual interface{}) bool {
+	excepted := toString(this.Expected)
+	if str, ok := actual.(string); ok {
+		return strings.HasSuffix(str, excepted)
+	}
+	return false
+}
+
+func EndWith(expected string) Matcher {
+	matcher := &endWith{}
+	matcher.Expected=expected
+	matcher.Reason="%v %s end with %v"
+	return matcher
+}
+
+type containString struct {
+	BaseMatcher
+}
+
+func (this *containString) Match(actual interface{}) bool {
+	excepted := toString(this.Expected)
+	if str, ok := actual.(string); ok {
+		return strings.Contains(str, excepted)
+	}
+	return false
+}
+
+func ContainString(expected string) Matcher {
+	matcher := &containString{}
+	matcher.Expected=expected
+	matcher.Reason="%v %s contain %v"
+	return matcher
 }
 
 

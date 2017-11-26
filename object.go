@@ -2,23 +2,14 @@ package tug
 
 import (
 	"reflect"
-	"fmt"
 )
 
 type isEqual struct {
-	expected interface{}
+	BaseMatcher
 }
 
 func (this *isEqual)Match(actual interface{}) bool {
-	return reflect.DeepEqual(this.expected, actual)
-}
-
-func (this *isEqual)FailReason(actual interface{})string {
-	return fmt.Sprintf("%v(expected)!=%v(actual)",this.expected,actual)
-}
-
-func (this *isEqual)NegationFailReason(actual interface{})string {
-	return fmt.Sprintf("%v(expected)=%v(actual)",this.expected,actual)
+	return reflect.DeepEqual(this.Expected, actual)
 }
 
 //Create a Matcher for match the actual object is equal excepted object
@@ -26,7 +17,10 @@ func (this *isEqual)NegationFailReason(actual interface{})string {
 //int:tug.Assert(t,2,Equal(2))
 //string:tug.Assert(t,"joe",Equal("joe"))
 func Equal(expected interface{}) Matcher {
-	return &isEqual{expected:expected}
+	matcher := &isEqual{}
+	matcher.Expected=expected
+	matcher.Reason="%v %s equal %v"
+	return matcher
 }
 
 
@@ -40,7 +34,7 @@ func NotNilVal() Matcher{
 }
 
 type isNil struct {
-	expected interface{}
+	BaseMatcher
 }
 
 func (this *isNil)Match(actual interface{}) bool {
@@ -57,16 +51,10 @@ func (this *isNil)Match(actual interface{}) bool {
 	return false
 }
 
-func (this *isNil)FailReason(actual interface{})string {
-	return fmt.Sprintf("%v(expected)!=%v(actual)",this.expected,actual)
-}
-
-func (this *isNil)NegationFailReason(actual interface{})string {
-	return fmt.Sprintf("%v(expected)=%v(actual)",this.expected,actual)
-}
-
 //Create a Matcher for match the object is nil or not.
 //example
 func NilVal() Matcher {
-	return &isNil{}
+	matcher := &isNil{}
+	matcher.Reason="%v %s equal %v"
+	return matcher
 }

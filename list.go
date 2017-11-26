@@ -34,8 +34,7 @@ func EmptyList() Matcher {
 }
 
 type hasItems struct {
-	reason string
-	expected interface{}
+	BaseMatcher
 }
 
 func (this *hasItems) Match(actual interface{}) bool {
@@ -47,7 +46,7 @@ func (this *hasItems) Match(actual interface{}) bool {
 	flag := false
 
 	for e := list.Front(); e != nil; e = e.Next() {
-		if e.Value == this.expected {
+		if e.Value == this.Expected {
 			flag = true
 			break
 		}
@@ -57,16 +56,16 @@ func (this *hasItems) Match(actual interface{}) bool {
 }
 
 func (this *hasItems)FailReason(actual interface{})string {
-	return fmt.Sprintf(this.reason,EMPTY,this.expected)
+	return fmt.Sprintf(this.Reason,EMPTY,this.Expected)
 }
 
 func (this *hasItems)NegationFailReason(actual interface{})string {
-	return fmt.Sprintf(this.reason,LOGIC_NOT,this.expected)
+	return fmt.Sprintf(this.Reason,LOGIC_NOT,this.Expected)
 }
 
 func HasItems(expected interface{}) Matcher {
-	return &hasItems{
-		expected:expected,
-		reason:"list is %s contain %v(excepted)",
-	}
+	matcher := &hasItems{}
+	matcher.Expected=expected
+	matcher.Reason="list is %s contain %v(excepted)"
+	return matcher
 }

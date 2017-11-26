@@ -16,7 +16,7 @@ func (this *startWith) Match(actual interface{}) bool {
 }
 
 func StartWith(expected string) Matcher {
-	matcher := &endWith{}
+	matcher := &startWith{}
 	matcher.Expected=expected
 	matcher.Reason="%v %s start with %v"
 	return matcher

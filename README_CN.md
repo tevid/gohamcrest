@@ -1,4 +1,4 @@
-tug - Test utils for Golang
+tug - Golang测试工具
 ================
 
 [![Build Status](https://travis-ci.org/zouyx/tug.svg?branch=master)](https://travis-ci.org/zouyx/tug)
@@ -8,34 +8,39 @@ tug - Test utils for Golang
 [![GoDoc](http://godoc.org/github.com/zouyx/tug?status.svg)](http://godoc.org/github.com/zouyx/tug)
 [![GitHub release](https://img.shields.io/github/release/zouyx/tug.svg)](https://github.com/zouyx/tug/releases)
 
-Test utils for Golang，use in go test only.[Chinese doc](README_CN.md)
+tug是一个匹配的库，可在创建测试时灵活的表达意图。当然也能被用于其他用途。
 
-Installation
+如何安装
 ------------
 
-Install Go Env [Getting Started](http://golang.org/doc/install.html) .Once finished,then enjoy yourself.
+### 安装go环境
+
+[请点我](http://golang.org/doc/install.html) 。安装完，就可以享受你的测试之旅。
+
+### 引入tug
 
 ``` shell
 gopm get github.com/zouyx/tug -v -g
 ```
 
-Or
+或者
 
 ``` shell
 go get -u github.com/zouyx/tug
 ```
 
 
-*PS*: Prefer Golang 1.6+
+*PS*: 最好使用 Golang 1.6+
 
-# Features
-* Assert.List
-* Assert.Object
-* Assert.String
+# 功能
+* 校验List
+* 校验Object
+* 校验数字，如int，float
+* 校验String
 
-More feature please respect.
+更多功能，敬请期待.
 
-# Usage
+# 如何使用
 
 - Assert equal
 
@@ -64,11 +69,11 @@ func TestNotEqual(t *testing.T) {
 }
 ```
 
-More usage,check test case please.More info check [Wiki](https://github.com/zouyx/tug/wiki) .
+更多使用方式,请查看项目中的test case.更多信息请参考 [Wiki](https://github.com/zouyx/tug/wiki) .
 
-# Contribution
+# 如何贡献
   * Source Code: https://github.com/zouyx/tug/
   * Issue Tracker: https://github.com/zouyx/tug/issues
   
-# License
+# 许可证
 The project is licensed under the [Apache 2 license](https://github.com/zouyx/tug/blob/master/LICENSE).

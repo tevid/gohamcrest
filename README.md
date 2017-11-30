@@ -66,6 +66,8 @@ func TestNotEqual(t *testing.T) {
 
 More usage,check test case please.More info check [Wiki](https://github.com/zouyx/tug/wiki) .
 
+If you think the tool is good or have any problems,must let me know, contact me by email when feel free or create a issue.
+
 # Contribution
   * Source Code: https://github.com/zouyx/tug/
   * Issue Tracker: https://github.com/zouyx/tug/issues

@@ -8,7 +8,7 @@ tug - Golang测试工具
 [![GoDoc](http://godoc.org/github.com/zouyx/tug?status.svg)](http://godoc.org/github.com/zouyx/tug)
 [![GitHub release](https://img.shields.io/github/release/zouyx/tug.svg)](https://github.com/zouyx/tug/releases)
 
-* tug是一个匹配的库，可在创建测试时灵活的表达意图。当然也能被用于其他用途。
+tug是一个匹配的库，可在创建测试时灵活的表达意图。当然也能被用于其他用途。
 
 如何安装
 ------------

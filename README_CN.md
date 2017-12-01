@@ -8,7 +8,7 @@ tug - Golang测试工具
 [![GoDoc](http://godoc.org/github.com/zouyx/tug?status.svg)](http://godoc.org/github.com/zouyx/tug)
 [![GitHub release](https://img.shields.io/github/release/zouyx/tug.svg)](https://github.com/zouyx/tug/releases)
 
-tug是一个匹配的库，可在创建测试时灵活的表达意图。当然也能被用于其他用途。
+* tug是一个匹配的库，可在创建测试时灵活的表达意图。当然也能被用于其他用途。
 
 如何安装
 ------------
@@ -17,7 +17,7 @@ tug - Golang测试工具
 
 [请点我](http://golang.org/doc/install.html) 。安装完，就可以享受你的测试之旅。
 
-### 引入tug
+### 下载依赖包
 
 ``` shell
 gopm get github.com/zouyx/tug -v -g
@@ -41,6 +41,12 @@ go get -u github.com/zouyx/tug
 更多功能，敬请期待.
 
 # 如何使用
+
+### 导入包
+
+import . "github.com/zouyx/tug"
+
+### 使用
 
 - Assert equal
 

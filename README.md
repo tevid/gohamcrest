@@ -8,7 +8,7 @@ tug - Test utils for Golang
 [![GoDoc](http://godoc.org/github.com/zouyx/tug?status.svg)](http://godoc.org/github.com/zouyx/tug)
 [![GitHub release](https://img.shields.io/github/release/zouyx/tug.svg)](https://github.com/zouyx/tug/releases)
 
-Test utils for Golang，use in go test only.[Chinese doc](README_CN.md)
+Powerful matcher for Golang testing. Simple, readable and humanized, also easy to extend. Say good bye to complex if statements.[Chinese doc](README_CN.md)
 
 Installation
 ------------

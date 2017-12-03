@@ -55,17 +55,9 @@ func (this *hasItems) Match(actual interface{}) bool {
 	return flag
 }
 
-func (this *hasItems)FailReason(actual interface{})string {
-	return fmt.Sprintf(this.Reason,EMPTY,this.Expected)
-}
-
-func (this *hasItems)NegationFailReason(actual interface{})string {
-	return fmt.Sprintf(this.Reason,LOGIC_NOT,this.Expected)
-}
-
 func HasItems(expected interface{}) Matcher {
 	matcher := &hasItems{}
 	matcher.Expected=expected
-	matcher.Reason="list is %s contain %v(excepted)"
+	matcher.Reason="List: %v is %s contain %v(excepted)"
 	return matcher
 }

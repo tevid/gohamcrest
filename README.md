@@ -12,7 +12,7 @@ tug - Test utils for Golang
 
 Simple, readable and humanized, also easy to extended. 
 
-Help you become an excellent Software Engineer is my believe.
+Help you become an excellent Golang Software Engineer is my believe.
 
 [Chinese doc](README_CN.md)
 

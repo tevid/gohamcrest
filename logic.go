@@ -1,4 +1,4 @@
-package tug
+package gomatcher
 
 type not struct {
 	trueMatcher Matcher

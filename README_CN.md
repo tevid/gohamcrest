@@ -1,14 +1,14 @@
-tug - Golang测试工具
+gomatcher - Golang匹配的库
 ================
 
-[![Build Status](https://travis-ci.org/zouyx/tug.svg?branch=master)](https://travis-ci.org/zouyx/tug)
-[![codebeat badge](https://codebeat.co/badges/cd82fdce-9938-478b-96de-4b3b2e122df7)](https://codebeat.co/projects/github-com-zouyx-tug-master)
-[![Coverage Status](https://coveralls.io/repos/github/zouyx/tug/badge.svg?branch=master)](https://coveralls.io/github/zouyx/tug?branch=master)
+[![Build Status](https://travis-ci.org/zouyx/gomatcher.svg?branch=master)](https://travis-ci.org/zouyx/gomatcher)
+[![codebeat badge](https://codebeat.co/badges/0b106c76-9761-4c98-9daa-6b123b5f2fa6)](https://codebeat.co/projects/github-com-zouyx-gomatcher-master)
+[![Coverage Status](https://coveralls.io/repos/github/zouyx/gomatcher/badge.svg?branch=master)](https://coveralls.io/github/zouyx/gomatcher?branch=master)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![GoDoc](http://godoc.org/github.com/zouyx/tug?status.svg)](http://godoc.org/github.com/zouyx/tug)
-[![GitHub release](https://img.shields.io/github/release/zouyx/tug.svg)](https://github.com/zouyx/tug/releases)
+[![GoDoc](http://godoc.org/github.com/zouyx/gomatcher?status.svg)](http://godoc.org/github.com/zouyx/gomatcher)
+[![GitHub release](https://img.shields.io/github/release/zouyx/gomatcher.svg)](https://github.com/zouyx/gomatcher/releases)
 
-**tug**是一个匹配的库，该库用于更方便的写测试用例。
+**gomatcher**是一个匹配的库，该库用于更方便的写测试用例。
 
 可在创建测试时灵活的表达意图，当然也能被用于其他用途。
 
@@ -24,13 +24,13 @@ tug - Golang测试工具
 ### 下载依赖包
 
 ``` shell
-gopm get github.com/zouyx/tug -v -g
+gopm get github.com/zouyx/gomatcher -v -g
 ```
 
 或者
 
 ``` shell
-go get -u github.com/zouyx/tug
+go get -u github.com/zouyx/gomatcher
 ```
 
 
@@ -48,7 +48,7 @@ go get -u github.com/zouyx/tug
 
 ### 导入包
 
-import . "github.com/zouyx/tug"
+import . "github.com/zouyx/gomatcher"
 
 ### 使用
 
@@ -79,11 +79,11 @@ func TestNotEqual(t *testing.T) {
 }
 ```
 
-更多使用方式,请查看项目中的test case.更多信息请参考 [Wiki](https://github.com/zouyx/tug/wiki) .
+更多使用方式,请查看项目中的test case.更多信息请参考 [Wiki](https://github.com/zouyx/gomatcher/wiki) .
 
 # 如何贡献
-  * Source Code: https://github.com/zouyx/tug/
-  * Issue Tracker: https://github.com/zouyx/tug/issues
+  * Source Code: https://github.com/zouyx/gomatcher/
+  * Issue Tracker: https://github.com/zouyx/gomatcher/issues
   
 # 许可证
-The project is licensed under the [Apache 2 license](https://github.com/zouyx/tug/blob/master/LICENSE).
+The project is licensed under the [Apache 2 license](https://github.com/zouyx/gomatcher/blob/master/LICENSE).

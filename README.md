@@ -70,13 +70,13 @@ func TestNotEqual(t *testing.T) {
 }
 ```
 
-More usage,check test case please.More info check [Wiki](https://github.com/zouyx/tug/wiki) .
+More usage,check test case please.More info check [Wiki](https://github.com/zouyx/gomatcher/wiki) .
 
 If you think the tool is good or have any problems,must let me know, contact me by email when feel free or create a issue.
 
 # Contribution
-  * Source Code: https://github.com/zouyx/tug/
-  * Issue Tracker: https://github.com/zouyx/tug/issues
+  * Source Code: https://github.com/zouyx/gomatcher/
+  * Issue Tracker: https://github.com/zouyx/gomatcher/issues
   
 # License
-The project is licensed under the [Apache 2 license](https://github.com/zouyx/tug/blob/master/LICENSE).
+The project is licensed under the [Apache 2 license](https://github.com/zouyx/gomatcher/blob/master/LICENSE).

@@ -22,13 +22,13 @@ Installation
 Install Go Env [Getting Started](http://golang.org/doc/install.html) .Once finished,then enjoy yourself.
 
 ``` shell
-gopm get github.com/zouyx/tug -v -g
+gopm get github.com/zouyx/gomatcher -v -g
 ```
 
 Or
 
 ``` shell
-go get -u github.com/zouyx/tug
+go get -u github.com/zouyx/gomatcher
 ```
 
 

@@ -1,4 +1,4 @@
-package tug
+package gomatcher
 
 import (
 	"reflect"
@@ -14,8 +14,8 @@ func (this *isEqual)Match(actual interface{}) bool {
 
 //Create a Matcher for match the actual object is equal excepted object
 //example:
-//int:tug.Assert(t,2,Equal(2))
-//string:tug.Assert(t,"joe",Equal("joe"))
+//int:gomatcher.Assert(t,2,Equal(2))
+//string:gomatcher.Assert(t,"joe",Equal("joe"))
 func Equal(expected interface{}) Matcher {
 	matcher := &isEqual{}
 	matcher.Expected=expected

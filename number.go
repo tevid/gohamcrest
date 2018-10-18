@@ -1,4 +1,4 @@
-package gomatcher
+package gohamcrest
 
 type greaterThanMatcher struct {
 	BaseMatcher

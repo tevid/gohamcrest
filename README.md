@@ -1,4 +1,4 @@
-gomatcher - Powerful matcher for Golang
+gohamcrest - Powerful assert framework for Golang
 ================
 
 [![Build Status](https://travis-ci.org/zouyx/gomatcher.svg?branch=master)](https://travis-ci.org/zouyx/gomatcher)

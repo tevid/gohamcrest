@@ -13,9 +13,6 @@ before_install:
     - go get github.com/mattn/goveralls
     - Project=gohamcrest
 
-install:
-    - go get github.com/cihub/seelog
-
 script:
     - chmod u+x coverage.sh
     - ./coverage.sh --coveralls

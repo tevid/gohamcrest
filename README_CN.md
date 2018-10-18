@@ -2,7 +2,7 @@ gohamcrest - Golang的断言库
 ================
 
 [![Build Status](https://travis-ci.org/zouyx/gohamcrest.svg?branch=master)](https://travis-ci.org/zouyx/gohamcrest)
-[![codebeat badge](https://codebeat.co/badges/0b106c76-9761-4c98-9daa-6b123b5f2fa6)](https://codebeat.co/projects/github-com-zouyx-gomatcher-master)
+[![codebeat badge](https://codebeat.co/badges/6b5ab21f-16a7-457c-b247-ba7d13bda3eb)](https://codebeat.co/projects/github-com-zouyx-gohamcrest-master)
 [![Coverage Status](https://coveralls.io/repos/github/zouyx/gohamcrest/badge.svg?branch=master)](https://coveralls.io/github/zouyx/gohamcrest?branch=master)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![GoDoc](http://godoc.org/github.com/zouyx/gohamcrest?status.svg)](http://godoc.org/github.com/zouyx/gohamcrest)

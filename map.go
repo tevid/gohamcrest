@@ -1,63 +1,33 @@
 package gohamcrest
 
 import (
-	"container/list"
-	"fmt"
+	"reflect"
 )
 
-type emptyList struct {
-	reason string
-}
-
-func (this *emptyList) Match(actual interface{}) bool {
-	list, ok := actual.(*list.List)
-	if ok {
-		return list==nil||list.Len()== 0
-	}else{
-		panic(fmt.Sprintf("type not match List.list,%T(actual)",list))
-	}
-	return false
-}
-
-func (this *emptyList)FailReason(actual interface{})string {
-	return fmt.Sprintf(this.reason,actual,LOGIC_NOT)
-}
-
-func (this *emptyList)NegationFailReason(actual interface{})string {
-	return fmt.Sprintf(this.reason,actual)
-}
-
-func EmptyList() Matcher {
-	return &emptyList{
-		reason:"list is %s nil, %v(actual)",
-	}
-}
-
-type hasItems struct {
+type hasMapValue struct {
 	BaseMatcher
 }
 
-func (this *hasItems) Match(actual interface{}) bool {
-	list, ok := actual.(*list.List)
-	if !ok {
-		panic(fmt.Sprintf("type not match List.list,%T(actual)",list))
-	}
+func (this *hasMapValue) Match(actual interface{}) bool {
+	listValue := reflect.ValueOf(actual)
 
 	flag := false
-
-	for e := list.Front(); e != nil; e = e.Next() {
-		if e.Value == this.Expected {
-			flag = true
-			break
+	if reflect.TypeOf(actual).Kind() == reflect.Map {
+		mapKeys := listValue.MapKeys()
+		for i := 0; i < len(mapKeys); i++ {
+			if mapKeys[i].Interface() == this.Expected {
+				flag = true
+				break
+			}
 		}
 	}
 
 	return flag
 }
 
-func HasItems(expected interface{}) Matcher {
-	matcher := &hasItems{}
+func HasMapValue(expected interface{}) Matcher {
+	matcher := &hasMapValue{}
 	matcher.Expected=expected
-	matcher.Reason="List: %v is %s contain %v(excepted)"
+	matcher.Reason="map: %v is %s contain %v(excepted)"
 	return matcher
 }

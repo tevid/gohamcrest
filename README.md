@@ -1,14 +1,14 @@
 gohamcrest - Powerful assert framework for Golang
 ================
 
-[![Build Status](https://travis-ci.org/zouyx/gomatcher.svg?branch=master)](https://travis-ci.org/zouyx/gomatcher)
-[![codebeat badge](https://codebeat.co/badges/0b106c76-9761-4c98-9daa-6b123b5f2fa6)](https://codebeat.co/projects/github-com-zouyx-gomatcher-master)
-[![Coverage Status](https://coveralls.io/repos/github/zouyx/gomatcher/badge.svg?branch=master)](https://coveralls.io/github/zouyx/gomatcher?branch=master)
+[![Build Status](https://travis-ci.org/zouyx/gohamcrest.svg?branch=master)](https://travis-ci.org/zouyx/gohamcrest)
+[![codebeat badge](https://codebeat.co/badges/6b5ab21f-16a7-457c-b247-ba7d13bda3eb)](https://codebeat.co/projects/github-com-zouyx-gohamcrest-master)
+[![Coverage Status](https://coveralls.io/repos/github/zouyx/gohamcrest/badge.svg?branch=master)](https://coveralls.io/github/zouyx/gohamcrest?branch=master)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![GoDoc](http://godoc.org/github.com/zouyx/gomatcher?status.svg)](http://godoc.org/github.com/zouyx/gomatcher)
-[![GitHub release](https://img.shields.io/github/release/zouyx/gomatcher.svg)](https://github.com/zouyx/gomatcher/releases)
+[![GoDoc](http://godoc.org/github.com/zouyx/gohamcrest?status.svg)](http://godoc.org/github.com/zouyx/gohamcrest)
+[![GitHub release](https://img.shields.io/github/release/zouyx/gohamcrest.svg)](https://github.com/zouyx/gohamcrest/releases)
 
-**gomatcher** is a powerful matcher for Golang testing designed for easy to write test case. 
+**gohamcrest** is a powerful assert framework for Golang testing designed for easy to write test case.
 
 Simple, readable and humanized, also easy to extended. 
 
@@ -22,13 +22,13 @@ Installation
 Install Go Env [Getting Started](http://golang.org/doc/install.html) .Once finished,then enjoy yourself.
 
 ``` shell
-gopm get github.com/zouyx/gomatcher -v -g
+gopm get github.com/zouyx/gohamcrest -v -g
 ```
 
 Or
 
 ``` shell
-go get -u github.com/zouyx/gomatcher
+go get -u github.com/zouyx/gohamcrest
 ```
 
 
@@ -70,13 +70,13 @@ func TestNotEqual(t *testing.T) {
 }
 ```
 
-More usage,check test case please.More info check [Wiki](https://github.com/zouyx/gomatcher/wiki) .
+More usage,check test case please.More info check [Wiki](https://github.com/zouyx/gohamcrest/wiki) .
 
 If you think the tool is good or have any problems,must let me know, contact me by email when feel free or create a issue.
 
 # Contribution
-  * Source Code: https://github.com/zouyx/gomatcher/
-  * Issue Tracker: https://github.com/zouyx/gomatcher/issues
+  * Source Code: https://github.com/zouyx/gohamcrest/
+  * Issue Tracker: https://github.com/zouyx/gohamcrest/issues
   
 # License
-The project is licensed under the [Apache 2 license](https://github.com/zouyx/gomatcher/blob/master/LICENSE).
+The project is licensed under the [Apache 2 license](https://github.com/zouyx/gohamcrest/blob/master/LICENSE).

@@ -1,4 +1,4 @@
-package gomatcher
+package gohamcrest
 
 import "testing"
 

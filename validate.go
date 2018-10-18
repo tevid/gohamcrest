@@ -1,4 +1,4 @@
-package tug
+package gohamcrest
 
 import (
 	"reflect"

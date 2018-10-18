@@ -1,4 +1,4 @@
-package gomatcher
+package gohamcrest
 
 type not struct {
 	trueMatcher Matcher

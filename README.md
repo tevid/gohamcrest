@@ -1,4 +1,4 @@
-gohamcrest - Powerful assert framework for Golang
+gohamcrest - Hamcrest-style matchers for Golang testing
 ================
 
 [![Build Status](https://travis-ci.org/zouyx/gohamcrest.svg?branch=master)](https://travis-ci.org/zouyx/gohamcrest)
@@ -8,7 +8,7 @@ gohamcrest - Powerful assert framework for Golang
 [![GoDoc](http://godoc.org/github.com/zouyx/gohamcrest?status.svg)](http://godoc.org/github.com/zouyx/gohamcrest)
 [![GitHub release](https://img.shields.io/github/release/zouyx/gohamcrest.svg)](https://github.com/zouyx/gohamcrest/releases)
 
-**gohamcrest** is a powerful assert framework for Golang testing designed for easy to write test case.
+**gohamcrest** is Hamcrest-style matchers for Golang testing designed for easy to write test case.
 
 Simple, readable and humanized, also easy to extended. 
 

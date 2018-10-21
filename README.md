@@ -3,7 +3,7 @@ gohamcrest - Hamcrest-style matchers for Golang testing
 
 [![Build Status](https://travis-ci.org/tevid/gohamcrest.svg?branch=master)](https://travis-ci.org/tevid/gohamcrest)
 [![codebeat badge](https://codebeat.co/badges/6b5ab21f-16a7-457c-b247-ba7d13bda3eb)](https://codebeat.co/projects/github-com-tevid-gohamcrest-master)
-[![Coverage Status](https://coveralls.io/repos/github/tevid/gohamcrest/badge.svg?branch=master)](https://coveralls.io/github/tevid/gohamcrest?branch=master)
+[![codebeat badge](https://codebeat.co/badges/56d4fa88-c69c-4658-85f8-1ab23391a35d)](https://codebeat.co/projects/github-com-tevid-gohamcrest-master)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![GoDoc](http://godoc.org/github.com/tevid/gohamcrest?status.svg)](http://godoc.org/github.com/tevid/gohamcrest)
 [![GitHub release](https://img.shields.io/github/release/tevid/gohamcrest.svg)](https://github.com/tevid/gohamcrest/releases)
